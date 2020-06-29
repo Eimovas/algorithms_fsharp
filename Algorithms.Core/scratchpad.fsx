@@ -1,10 +1,12 @@
 #load "ArrayString.fs"
 
 open ArrayString
+open Permutation
 
-let unique = "very"
-let notUnique = "i am not unique"
+let str1 = "jonas"
+let str2 = "sanoj"
 
-hasUniqueCharsHash unique |> printfn "%b"
-hasUniqueCharsHash notUnique |> printfn "%b"
+let str3 = "one"
+let str4 = "two"
 
+isPermutationArray str1 str2 |> printfn "%b"
