@@ -1,12 +1,12 @@
 #load "ArrayString.fs"
 
 open ArrayString
-open Permutation
+open Urification
 
-let str1 = "jonas"
-let str2 = "sanoj"
+let input1 =  "i am going for a walk                  "
+let result1 = "i%20am%20going%20for%20a%20walk"
 
-let str3 = "one"
-let str4 = "two"
+encodeArrayCorrect input1 21 |> printfn "%s"
 
-isPermutationArray str1 str2 |> printfn "%b"
+for i in 10..-1..0 do
+    printfn "%i" i
