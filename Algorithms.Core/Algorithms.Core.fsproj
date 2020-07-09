@@ -5,7 +5,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="ArrayString.fs" />
+        <Compile Include="ArrayString\Uniqueness.fs" />
+        <Compile Include="ArrayString\Permutation.fs" />
+        <Compile Include="ArrayString\Urification.fs" />
+        <Compile Include="ArrayString\PalindromePermutation.fs" />
+        <Compile Include="ArrayString\OneEditAway.fs" />
+        <Compile Include="ArrayString\Encoding.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
