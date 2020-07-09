@@ -1,12 +1,16 @@
 #load "ArrayString.fs"
 
 open ArrayString
-open Urification
+open OneAway
 
-let input1 =  "i am going for a walk                  "
-let result1 = "i%20am%20going%20for%20a%20walk"
+(*
+    pale,ple -> true
+    pales, pale -> true
+    pale, bale -> true
+    pale, bake -> false
+*)
 
-encodeArrayCorrect input1 21 |> printfn "%s"
+let input1 = "pale"
+let input2 = "ple"
 
-for i in 10..-1..0 do
-    printfn "%i" i
+isOneEdit input1 input2 

@@ -138,6 +138,8 @@ module Urification =
     1- get number of spaces in string
     2- using it, determine unneeded spaces to fill with nulls
     3- iterate backwards
+    time: O(trueLength + s.length) -> O(n)
+    space: O(n)
     
     *)
     
@@ -193,3 +195,108 @@ module Urification =
                 
         System.String(arr)
 
+
+module PalindromePermutation =
+    (*
+    Given a string, write a function to check if it is permutation of palindrome.
+    You can ignore casing and non-letter chars.
+    
+    For example:
+    input: Tact Coa
+    output: true -> taco cat, atco cta
+    
+    I probably need to iterate through chars anyway, so best runtime - O(str.length).
+    Palindrome means:
+    - all individual letter count is even OR
+    - one individual letter count is uneven, but all others are even
+    
+    1- I can build a list with letter counts -> O(n)
+    2- I can apply even/uneven logic at it -> O(list.length)
+    3- Space -> O(list + str)
+    
+    To reduce space and not use list, i could maybe...
+    1- Sort chars -> O(n log n)
+    2- Iterate and look for repeating chars and count their pairs -> O(n)
+        - this might get a bit tricky
+    3- But i wouldn't need any additional space.
+    *)
+    
+    let isPalindromePermutation (str : string) =
+        // would swap this with a traditional for loop -> piping to save space 
+        let counts =
+            str
+            |> Seq.filter Char.IsLetter
+            |> Seq.map Char.ToLower
+            |> Seq.countBy id
+            |> Seq.map snd
+            |> Seq.toList
+            
+        let odd = counts |> List.filter (fun v -> v % 2 = 0)
+        
+        odd.Length = 0 || odd.Length = 1
+        
+module OneAway =
+    (*
+    There are three types of edits that can be performed on a string: insert char,
+    remove char or replace a char. Given two strings, write a function to check if they are
+    one or zero edits away.
+    
+    Samples:
+    pale,ple -> true
+    pales, pale -> true
+    pale, bale -> true
+    pale, bake -> false
+    
+    Solution 1:
+    - if str length diff is > 1, its false
+    - if i iterate through string, insert and remove should negate each other, so i should be ok to use only insert
+    - iterate longer (if length don't match) and use insert on shorter (could iterate shorter and use remove)
+    - create flag to indicate edit was done
+    - check each char is equal
+    - if lengths don't match, i'll always need to do an insert in the shorter string (the only necessary edit)
+    - if lengths match, i'll need to do a replace
+    - this would work but logic and indexing is very ugly and i'll get confused
+    - time - O(max(s1.length, s2.length))
+    - space - O(1)
+    
+    Solution 2 (assuming ASCII strings):
+    - if str length diff is > 1, its false
+    - create array with char count for each string
+    - compare char counts - max one char count shouldn't match to be true
+    - otherwise - false
+    - NO!! -> this won't work because character order is important and count will not consider that.
+    - time - O(max(s1.length, s2.length))
+    - space - O(s1 + s2) => O(n)
+    
+    *)
+    
+    let private isOneEditEqualLengths (str1 : string) (str2 : string) =
+        let rec iterate edited index (str1 : char[]) (str2 : char[]) =
+            if index = str1.Length then true
+            else 
+                match edited, str1.[index] = str2.[index] with
+                | false, false -> iterate true (index + 1) str1 str2
+                | true, false -> false
+                | _ -> iterate edited (index + 1) str1 str2
+        
+        iterate false 0 (str1.ToCharArray()) (str2.ToCharArray())
+        
+    let private isOneEditDifferentLengths (str1 : string) (str2 : string) =
+        let rec iterate edited longIndex shortIndex (longer : char[]) (shorter : char[]) =
+            if shortIndex = shorter.Length then true
+            else
+                match edited, longer.[longIndex] = shorter.[shortIndex] with
+                | false, false -> iterate true (longIndex + 1) shortIndex longer shorter
+                | true, false -> false
+                | _ -> iterate edited (longIndex + 1) (shortIndex + 1) longer shorter
+        
+        let (longer,shorter) = if str1.Length > str2.Length then (str1,str2) else (str2,str1)
+        iterate false 0 0 (longer.ToCharArray()) (shorter.ToCharArray())
+    
+    let isOneEdit (str1 : string) (str2 : string) =
+        let absoluteDiff = abs (str1.Length - str2.Length)
+        
+        match absoluteDiff with
+        | 0 -> isOneEditEqualLengths str1 str2
+        | 1 -> isOneEditDifferentLengths str1 str2
+        | _ -> false                
