@@ -1,16 +1,15 @@
-#load "ArrayString.fs"
 
-open ArrayString
-open OneAway
+let input = array2D [
+    [1;2;3;4]
+    [1;2;3;4]
+    [1;2;3;4]
+    [1;2;3;4]
+]
+let expected = array2D [
+    [1;1;1;1]
+    [2;2;2;2]
+    [3;3;3;3]
+    [4;4;4;4]
+] 
 
-(*
-    pale,ple -> true
-    pales, pale -> true
-    pale, bale -> true
-    pale, bake -> false
-*)
-
-let input1 = "pale"
-let input2 = "ple"
-
-isOneEdit input1 input2 
+for i in 0..5 do printfn "%i" i

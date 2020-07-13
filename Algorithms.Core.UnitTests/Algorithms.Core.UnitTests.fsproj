@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <Compile Include="ArrayString\Encoding.fs" />
+        <Compile Include="ArrayString\MatrixRotation.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

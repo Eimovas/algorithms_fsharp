@@ -11,6 +11,7 @@
         <Compile Include="ArrayString\PalindromePermutation.fs" />
         <Compile Include="ArrayString\OneEditAway.fs" />
         <Compile Include="ArrayString\Encoding.fs" />
+        <Compile Include="ArrayString\MatrixRotation.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
