@@ -10,6 +10,7 @@
     <ItemGroup>
         <Compile Include="ArrayString\Encoding.fs" />
         <Compile Include="ArrayString\MatrixRotation.fs" />
+        <Compile Include="ArrayString\ZeroMatrix.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

@@ -35,7 +35,7 @@ module MatrixRotation
     
     - Solution - iterate diagonal and do swaps in place
     - Space -> O(1)
-    - Time -> O (N.Length) -> NOT SURE :(
+    - Time -> O (N * N) -> have to touch each item, and matrix is N*N
 *)
 
 let rotate (matrix : int[,]) : int[,] =
