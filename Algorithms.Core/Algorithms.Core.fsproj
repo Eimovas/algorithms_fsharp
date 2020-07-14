@@ -13,6 +13,7 @@
         <Compile Include="ArrayString\Encoding.fs" />
         <Compile Include="ArrayString\MatrixRotation.fs" />
         <Compile Include="ArrayString\ZeroMatrix.fs" />
+        <Compile Include="ArrayString\StringRotation.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
