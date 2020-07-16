@@ -14,6 +14,8 @@
         <Compile Include="ArrayString\MatrixRotation.fs" />
         <Compile Include="ArrayString\ZeroMatrix.fs" />
         <Compile Include="ArrayString\StringRotation.fs" />
+        <Compile Include="LinkedLists\LinkedList.fs" />
+        <Compile Include="LinkedLists\DuplicateRemoval.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 

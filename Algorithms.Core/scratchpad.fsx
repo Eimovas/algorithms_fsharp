@@ -1,16 +1,19 @@
+#load "LinkedLists/LinkedList.fs"
+#load "LinkedLists/DuplicateRemoval.fs"
 
-let input = array2D [
-    [1;2;3;4]
-    [1;2;3;4]
-    [1;2;3;4]
-]
-let expected = array2D [
-    [1;1;1;1]
-    [2;2;2;2]
-    [3;3;3;3]
-    [4;4;4;4]
-] 
+open DuplicateRemoval
+open LinkedList
 
-input |> Array2D.length1 
+let list = LinkedList.SinglyLinkedList<int>()
+list.AddFront 1
+list.AddFront 2
+list.AddFront 3
+list.AddFront 2
+list.AddFront 1
+list.AddFront 1
+list.AddFront 1
+list.AddFront 1
+list.AddFront 1
+list.AddFront 1
 
-input.[0,*] <- Array.zeroCreate 4
+list.List() |> printfn "%A"

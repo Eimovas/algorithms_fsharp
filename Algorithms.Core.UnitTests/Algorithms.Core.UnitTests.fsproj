@@ -12,6 +12,7 @@
         <Compile Include="ArrayString\MatrixRotation.fs" />
         <Compile Include="ArrayString\ZeroMatrix.fs" />
         <Compile Include="ArrayString\StringRotation.fs" />
+        <Compile Include="LinkedLists\DuplicateRemoval.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
