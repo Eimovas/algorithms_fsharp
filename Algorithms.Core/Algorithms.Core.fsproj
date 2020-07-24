@@ -16,6 +16,8 @@
         <Compile Include="ArrayString\StringRotation.fs" />
         <Compile Include="LinkedLists\LinkedList.fs" />
         <Compile Include="LinkedLists\DuplicateRemoval.fs" />
+        <Compile Include="LinkedLists\KthElement.fs" />
+        <Compile Include="LinkedLists\MiddleRemoval.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
