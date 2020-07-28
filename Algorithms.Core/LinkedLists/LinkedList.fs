@@ -1,7 +1,7 @@
 module LinkedList
 
 type SinglyNode<'a> = {
-    Value : 'a
+    mutable Value : 'a
     mutable Next : SinglyNode<'a> option
 }
 

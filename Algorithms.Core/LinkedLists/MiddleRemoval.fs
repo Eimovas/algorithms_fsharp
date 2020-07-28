@@ -16,6 +16,12 @@ Solution #1:
 - stop loop
 - Time - O(n) - worst case i'll iterate the whole list
 - Space - O(1)
+
+Solution #2 (correct)
+- I only have access to the target node (to its reference)
+- I can take value from next node, use it for current node, and update my next pointer to be next node's next
+- This won't work if node to remove is last
+- Time - O(1), Space - O(1)
 *)
 
 let rec private removeNode (p1 : SinglyNode<int> option) (p2 : SinglyNode<int> option) (target : int) =
@@ -39,3 +45,11 @@ let removeMiddle (list : SinglyLinkedList<int>) (node : int) =
         else
             let _ = removeNode p1 p2 node        
             list
+
+let removeMiddleOptimised (list : SinglyLinkedList<int>) (node : SinglyNode<int>) =
+    match node.Next with
+    | None -> failwith "can't solve this if given node is last in list"
+    | Some n ->
+        node.Value <- n.Value
+        node.Next <- n.Next
+        list
