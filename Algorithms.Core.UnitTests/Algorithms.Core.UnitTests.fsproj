@@ -15,6 +15,7 @@
         <Compile Include="LinkedLists\DuplicateRemoval.fs" />
         <Compile Include="LinkedLists\KthElement.fs" />
         <Compile Include="LinkedLists\MiddleRemoval.fs" />
+        <Compile Include="LinkedLists\Partition.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
