@@ -19,6 +19,7 @@
         <Compile Include="LinkedLists\KthElement.fs" />
         <Compile Include="LinkedLists\MiddleRemoval.fs" />
         <Compile Include="LinkedLists\Partition.fs" />
+        <Compile Include="LinkedLists\SumLists.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
