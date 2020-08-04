@@ -7,7 +7,7 @@ open LinkedList
 
 (*
 You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored
-in a reverse order. Write function that adds the two number s and returns the sum as a reversed linked list.
+in a reverse order. Write function that adds the two numbers and returns the sum as a reversed linked list.
 
 Example:
 Input: (7 - 1 - 6) + (5 - 9 - 2). That's 617+295
@@ -68,3 +68,36 @@ let addListsNaive (first : SinglyLinkedList<char>) (second : SinglyLinkedList<ch
             result.AddFront c
             
         result
+
+let addListsOptimised (first : SinglyLinkedList<char>) (second : SinglyLinkedList<char>) : SinglyLinkedList<char> =
+    (*
+    7 1 6
+    5 9 2
+    
+    2 1 9
+    *)
+    let asciiZero = 48
+    let charToInt (x : char) : int = Char.GetNumericValue x |> int
+    let add (x: int) (y : int) (remainder : int) =
+        let sum = x + y
+        if sum > 9 then
+            sum%10 + asciiZero + remainder |> char, 1
+        else
+            sum + asciiZero + remainder |> char, 0
+
+    let rec sum (node1 : SinglyNode<char> option) (node2 : SinglyNode<char> option) (remainder : int) (result : char list) =
+        match node1, node2 with
+        | Some v1, Some v2 ->
+            let (added,remainder) = add (charToInt v1.Value) (charToInt v2.Value) remainder
+            sum v1.Next v2.Next remainder result@[added]
+        | None, Some v1 ->
+            let (added,remainder) = add (charToInt v1.Value) (charToInt '0') remainder
+            sum v1.Next None remainder result@[added]
+        | Some v1, None ->
+            let (added,remainder) = add (charToInt v1.Value) (charToInt '0') remainder            
+            sum v1.Next None remainder result@[added]
+        | None, None ->
+            result // add remainder if non-zero           
+            
+    let resultList = sum first.Head second.Head 0 List.Empty
+    resultList |> List.fold (fun acc i -> acc.AddFront i;acc) (SinglyLinkedList<char>())
