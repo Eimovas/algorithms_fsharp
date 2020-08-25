@@ -21,6 +21,7 @@
         <Compile Include="LinkedLists\Partition.fs" />
         <Compile Include="LinkedLists\SumLists.fs" />
         <Compile Include="LinkedLists\Palindrome.fs" />
+        <Compile Include="LinkedLists\Intersection.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
