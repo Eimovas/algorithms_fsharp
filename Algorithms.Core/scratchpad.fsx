@@ -1,19 +1,19 @@
-#load "StackQueue/Stack.fs"
+#load "StackQueue/Queue.fs"
 
-open Stack
+open Queue
 
-let rec iterateStack (stack : SimpleStack<'a>) =
-    match stack.Pop() with
-    | None -> printfn "Stack finished"
-    | Some x -> printfn "Value: %A" x; iterateStack stack
+let rec iterateQueue (queue : SimpleQueue<'a>) =
+    match queue.Dequeue() with
+    | None -> printfn "Queue finished"
+    | Some x -> printfn "Value: %A" x; iterateQueue queue
     
 
-let stack = SimpleStack<int>()
+let queue = SimpleQueue<int>()
 
-stack.Push 1
-stack.Push 2
-stack.Push 3
-stack.Push 4
+queue.Enqueue 1
+queue.Enqueue 2
+queue.Enqueue 3
+queue.Enqueue 4
 
-iterateStack stack
+iterateQueue queue
 

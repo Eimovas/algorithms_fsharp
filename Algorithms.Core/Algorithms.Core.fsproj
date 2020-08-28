@@ -24,6 +24,7 @@
         <Compile Include="LinkedLists\Intersection.fs" />
         <Compile Include="LinkedLists\LoopDetection.fs" />
         <Compile Include="StackQueue\Stack.fs" />
+        <Compile Include="StackQueue\Queue.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
