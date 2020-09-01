@@ -1,19 +1,22 @@
-#load "StackQueue/Queue.fs"
+#load "StackQueue/Stack.fs"
+#load "StackQueue/StackMin.fs"
 
-open Queue
+open StackMin
 
-let rec iterateQueue (queue : SimpleQueue<'a>) =
-    match queue.Dequeue() with
-    | None -> printfn "Queue finished"
-    | Some x -> printfn "Value: %A" x; iterateQueue queue
-    
+let stack = MinSimpleStack<int>()
 
-let queue = SimpleQueue<int>()
+stack.Push 9
+stack.Min() |> printfn "%A"
 
-queue.Enqueue 1
-queue.Enqueue 2
-queue.Enqueue 3
-queue.Enqueue 4
+stack.Push 1
+stack.Min() |> printfn "%A"
 
-iterateQueue queue
+stack.Push 3
+stack.Min() |> printfn "%A"
 
+stack.Pop()
+stack.Min() |> printfn "%A"
+stack.Pop()
+stack.Min() |> printfn "%A"
+stack.Pop()
+stack.Min() |> printfn "%A"
