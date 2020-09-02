@@ -1,22 +1,13 @@
 #load "StackQueue/Stack.fs"
-#load "StackQueue/StackMin.fs"
+#load "StackQueue/StackOfPlates.fs"
 
-open StackMin
+open StackOfPlates
 
-let stack = MinSimpleStack<int>()
+let stack = SetOfStacks<int>(2)
 
 stack.Push 9
-stack.Min() |> printfn "%A"
-
 stack.Push 1
-stack.Min() |> printfn "%A"
-
 stack.Push 3
-stack.Min() |> printfn "%A"
-
-stack.Pop()
-stack.Min() |> printfn "%A"
-stack.Pop()
-stack.Min() |> printfn "%A"
-stack.Pop()
-stack.Min() |> printfn "%A"
+stack.Pop() |> printfn "%A"
+stack.Pop() |> printfn "%A"
+stack.Pop() |> printfn "%A"
