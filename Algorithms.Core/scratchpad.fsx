@@ -1,13 +1,13 @@
 #load "StackQueue/Stack.fs"
-#load "StackQueue/StackOfPlates.fs"
+#load "StackQueue/QueueFromStacks.fs"
 
-open StackOfPlates
+open QueueFromStacks
 
-let stack = SetOfStacks<int>(2)
+let stack = StackQueue<int>()
 
-stack.Push 9
-stack.Push 1
-stack.Push 3
-stack.Pop() |> printfn "%A"
-stack.Pop() |> printfn "%A"
-stack.Pop() |> printfn "%A"
+stack.Enqueue 9
+stack.Enqueue 1
+stack.Enqueue 3
+stack.Dequeue() |> printfn "%A"
+stack.Dequeue() |> printfn "%A"
+stack.Dequeue() |> printfn "%A"

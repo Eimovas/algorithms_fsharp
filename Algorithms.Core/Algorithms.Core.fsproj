@@ -27,6 +27,7 @@
         <Compile Include="StackQueue\Queue.fs" />
         <Compile Include="StackQueue\StackMin.fs" />
         <Compile Include="StackQueue\StackOfPlates.fs" />
+        <Compile Include="StackQueue\QueueFromStacks.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
