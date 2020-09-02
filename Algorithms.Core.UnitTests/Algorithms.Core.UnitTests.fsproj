@@ -23,6 +23,7 @@
         <Compile Include="StackQueue\QueueFromStacks.fs" />
         <Compile Include="StackQueue\Queue.fs" />
         <Compile Include="StackQueue\Stack.fs" />
+        <Compile Include="StackQueue\SortStack.fs" />
         <Compile Include="StackQueue\StackOfPlates.fs" />
         <Compile Include="StackQueue\StackMin.fs" />
         <Compile Include="Program.fs" />

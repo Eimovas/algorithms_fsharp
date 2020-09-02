@@ -3,6 +3,7 @@ module StackMin
 open StackMin
 open Xunit
 
+
 [<Fact>]
 let ``Given empty stack, When peek, Then return None ``() =
     let stack = MinSimpleStack<int>()

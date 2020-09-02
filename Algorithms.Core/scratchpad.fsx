@@ -1,13 +1,15 @@
 #load "StackQueue/Stack.fs"
-#load "StackQueue/QueueFromStacks.fs"
+#load "StackQueue/SortStack.fs"
 
-open QueueFromStacks
+open SortStack
 
-let stack = StackQueue<int>()
+let stack = SortStack<int>()
 
-stack.Enqueue 9
-stack.Enqueue 1
-stack.Enqueue 3
-stack.Dequeue() |> printfn "%A"
-stack.Dequeue() |> printfn "%A"
-stack.Dequeue() |> printfn "%A"
+stack.Peek() |> printfn "%A"
+
+stack.Push 1
+stack.Push 2
+stack.Push 3
+stack.Pop() |> printfn "%A"
+stack.Pop() |> printfn "%A"
+stack.Pop() |> printfn "%A"
