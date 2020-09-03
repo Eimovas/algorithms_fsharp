@@ -13,3 +13,9 @@ stack.Push 3
 stack.Pop() |> printfn "%A"
 stack.Pop() |> printfn "%A"
 stack.Pop() |> printfn "%A"
+
+
+let mutable a = "algis"
+let b = a
+b
+a<- "algis antanas"

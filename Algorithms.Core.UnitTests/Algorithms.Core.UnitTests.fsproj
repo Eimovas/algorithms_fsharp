@@ -26,6 +26,7 @@
         <Compile Include="StackQueue\SortStack.fs" />
         <Compile Include="StackQueue\StackOfPlates.fs" />
         <Compile Include="StackQueue\StackMin.fs" />
+        <Compile Include="StackQueue\AnimalShelter.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

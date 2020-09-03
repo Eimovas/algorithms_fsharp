@@ -29,6 +29,7 @@
         <Compile Include="StackQueue\StackOfPlates.fs" />
         <Compile Include="StackQueue\QueueFromStacks.fs" />
         <Compile Include="StackQueue\SortStack.fs" />
+        <Compile Include="StackQueue\AnimalShelter.fs" />
         <None Include="scratchpad.fsx" />
     </ItemGroup>
 
